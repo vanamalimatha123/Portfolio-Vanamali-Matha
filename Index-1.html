@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Vanamali Matha — IT Project Coordinator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Vanamali Matha — IT Project Coordinator | ITSM & Service Delivery | ServiceNow | ITIL v4 | Ex-Pomeroy & DXC" />
+  <meta name="keywords" content="Vanamali Matha, ITSM, ServiceNow, ITIL, Service Delivery, Project Coordinator" />
+  <link rel="icon" href="./assests/images/Vanamali.jpeg" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg:#f5f7fb; --surface:#ffffff; --muted:#6b7280; --accent:#0b74de; --accent-2:#055fa6;
+      --glass: rgba(11,116,222,0.06); --radius:12px; --maxw:1100px; --shadow: 0 10px 30px rgba(11,74,130,0.06);
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif; color-scheme: light;
+    }
+    :root[data-theme='dark']{
+      --bg:#071026; --surface:#071a2a; --muted:#9fb0c9; --accent:#4fb0ff; --accent-2:#2b9bff; --glass: rgba(79,176,255,0.06);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%, rgba(0,0,0,0.02) 100%);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+    header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,0.6);backdrop-filter:blur(6px);border-bottom:1px solid rgba(15,23,42,0.04)}
+    :root[data-theme='dark'] header{background:rgba(7,26,42,0.55);border-bottom-color:rgba(255,255,255,0.03)}
+    .navwrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;max-width:var(--maxw);margin:0 auto}
+    .logo{font-weight:700;color:var(--accent);text-decoration:none;font-size:18px;display:flex;align-items:center;gap:10px}
+    nav ul{display:flex;gap:10px;list-style:none;padding:0;margin:0}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:14px}
+    nav a:hover, nav a.active{background:var(--glass);color:var(--accent-2)}
+    .menu-btn{display:none;background:transparent;border:0;font-size:20px;color:var(--muted)}
+    .controls{display:flex;gap:8px;align-items:center}
+    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;border:0;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(11,116,222,0.12)}
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:center;padding:48px 0}
+    .hero h1{font-size:28px;margin:0 0 6px}
+    .hero p.lead{color:var(--muted);margin:8px 0 16px}
+    .tagline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .badge{background:var(--accent);color:#fff;padding:6px 10px;border-radius:999px;font-size:13px}
+    .typing {font-weight:600;color:var(--accent-2)}
+    /* profile card */
+    .profile-card{background:var(--surface);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:var(--shadow)}
+    .profile-card img{width:100%;max-width:260px;border-radius:14px;object-fit:cover}
+    .small{font-size:13px;color:var(--muted)}
+    /* sections */
+    section{padding:36px 0}
+    h2.heading{display:flex;align-items:center;gap:12px;font-size:20px;margin:0 0 18px}
+    .about-grid{display:grid;grid-template-columns:380px 1fr;gap:24px}
+    .about-card{background:var(--surface);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(11,74,130,0.03)}
+    .info-grid{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .info-grid .box{background:rgba(11,116,222,0.05);padding:10px;border-radius:10px;font-weight:600;color:var(--accent-2)}
+    /* skills */
+    .skill-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .skill{background:var(--surface);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(11,74,130,0.02)}
+    .progress{height:10px;background:#eef5fe;border-radius:8px;overflow:hidden}
+    .progress > span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:8px}
+    /* projects */
+    .project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .proj{background:var(--surface);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(11,74,130,0.02)}
+    .proj img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    /* contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .form .field{display:flex;gap:8px;margin-bottom:12px}
+    .form input,.form textarea{flex:1;padding:10px;border-radius:8px;border:1px solid #e6eefc;background:#fff;outline:none}
+    :root[data-theme='dark'] .form input, :root[data-theme='dark'] .form textarea{background:#062233;border-color:rgba(255,255,255,0.06);color:#dbeafe}
+    .form textarea{min-height:120px;resize:vertical}
+    /* footer */
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(15,23,42,0.04);background:transparent}
+    .footer-grid{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+    .copy{margin-top:12px;color:var(--muted);font-size:13px}
+    /* utilities & responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      .about-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:820px){
+      nav ul{display:none}
+      .menu-btn{display:block}
+    }
+    .reveal{opacity:0;transform:translateY(14px);transition:all 600ms cubic-bezier(.2,.9,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+    .sr-small{transition-delay:80ms}
+    .sr-mid{transition-delay:160ms}
+    .sr-large{transition-delay:240ms}
+    /* focus */
+    a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(11,116,222,0.12);outline-offset:2px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navwrap container" role="navigation" aria-label="Top navigation">
+      <a class="logo" href="#home" aria-label="Home"><i class="fab fa-node-js"></i>&nbsp;Vanamali Matha</a>
+
+      <nav aria-label="Primary">
+        <ul id="navLinks">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#work">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="controls">
+        <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        <button class="btn secondary" id="themeToggle" aria-pressed="false" title="Toggle dark / light mode">
+          <i id="themeIcon" class="fas fa-moon"></i> Theme
+        </button>
+        <a class="btn" href="./assests/Resume_Vanamali_Matha.pdf" download aria-label="Download resume">Resume</a>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <nav id="mobileMenu" style="display:none;background:rgba(255,255,255,0.98);border-top:1px solid rgba(0,0,0,0.04);">
+      <div class="container" style="display:flex;flex-direction:column;padding:10px">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" id="main">
+    <!-- HERO -->
+    <section id="home" class="hero" aria-labelledby="home-heading">
+      <div class="content">
+        <h1 id="home-heading">Hi — I'm <strong>Vanamali Matha</strong></h1>
+        <p class="lead">IT Project Coordinator @ SISL Infotech (UK) Pvt. Ltd — Service Delivery & ITSM Analyst. Making global IT operations run smoother, 24×7.</p>
+
+        <div class="tagline" aria-hidden="false">
+          <span class="badge">Preferred: Chennai • Bangalore • Hyderabad • Remote</span>
+          <span class="small">Availability: Immediate</span>
+        </div>
+
+        <p style="margin-top:14px">
+          <strong>Quick contacts:</strong>
+          <a class="small" href="mailto:mathavanamali121@gmail.com">mathavanamali121@gmail.com</a> ·
+          <a class="small" href="https://www.linkedin.com/in/vanamalimatha/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </p>
+
+        <div style="margin-top:18px">
+          <a class="btn" href="#contact">Hire / Contact</a>
+          <a class="btn secondary" href="#about" style="margin-left:8px">Learn more</a>
+        </div>
+
+        <p class="small" style="margin-top:18px">I work with <span class="typing"></span></p>
+
+        <div style="margin-top:16px" class="socials" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/vanamalimatha/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/vanamalimatha123" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          <a href="https://medium.com/@mathavanamali121" target="_blank" rel="noopener noreferrer"><i class="fab fa-medium"></i></a>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Profile card">
+        <img src="./assests/images/Vanamali.jpeg" alt="Portrait of Vanamali Matha" loading="lazy" />
+        <div style="text-align:center">
+          <div style="font-weight:700">Vanamali Matha</div>
+          <div class="small">IT Project Coordinator • ITSM Analyst</div>
+          <div class="small">ServiceNow | ITIL v4 | Cloud</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <a class="btn secondary" href="mailto:mathavanamali121@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 class="heading"><i class="fas fa-user-alt"></i> <span id="about-heading">About Me</span></h2>
+
+      <div class="about-grid">
+        <div class="about-card reveal sr-small">
+          <h3 style="margin-top:0">Professional Summary</h3>
+          <p class="small muted">
+            IT Project Coordinator & ITSM Analyst with experience across BFSI, Healthcare, Retail, Telecom, Manufacturing, Automotive and Construction. I manage incidents (P1–P4), changes, problems, and service requests, coordinate field engineering & dispatch, conduct CMDB audits, and produce SLA/KPI dashboards — keeping global IT operations predictable and efficient.
+          </p>
+
+          <div class="info-grid" style="margin-top:12px">
+            <div class="box">Age: 24</div>
+            <div class="box">Preferred: Chennai • Bangalore • Hyderabad • Remote</div>
+            <div class="box">Email: mathavanamali121@gmail.com</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <a class="btn" href="./assests/Resume_Vanamali_Matha.pdf" download>Download Resume</a>
+          </div>
+        </div>
+
+        <div class="reveal sr-mid">
+          <h3 style="margin-top:0">Key highlights</h3>
+          <ul class="small muted">
+            <li>98%+ SLA compliance across service delivery functions</li>
+            <li>Reduced major incident resolution times by 40%</li>
+            <li>Coordinated 200+ monthly RFCs with 98% ITIL compliance</li>
+            <li>Delivered $6.6M cost savings through migration & decommissioning</li>
+            <li>Tools: ServiceNow, Dynatrace, AWS Connect, Appgate, Ivanti, PuTTY, SIMS</li>
+          </ul>
+          <p class="small" style="margin-top:12px">I’m proactive — preventing incidents, automating repeatable work, and ensuring predictable delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 class="heading"><i class="fas fa-laptop-code"></i> <span id="skills-heading">Skills & Abilities</span></h2>
+
+      <div class="skill-list">
+        <div class="skill reveal sr-small">
+          <h4>IT Service Management</h4>
+          <div class="small muted">Incident, Change, Problem, Service Request, Knowledge, ITIL framework</div>
+          <div class="progress" style="margin-top:8px"><span style="width:92%"></span></div>
+        </div>
+
+        <div class="skill reveal sr-small">
+          <h4>Field Service Ops</h4>
+          <div class="small muted">Dispatch, IMACD, Technician Scheduling, Vendor Coordination</div>
+          <div class="progress" style="margin-top:8px"><span style="width:88%"></span></div>
+        </div>
+
+        <div class="skill reveal sr-mid">
+          <h4>Project & Ops</h4>
+          <div class="small muted">CAB, RCA/PIR, CMDB audits, Workforce planning</div>
+          <div class="progress" style="margin-top:8px"><span style="width:86%"></span></div>
+        </div>
+
+        <div class="skill reveal sr-mid">
+          <h4>Reporting & Dashboards</h4>
+          <div class="small muted">MIS, SLA dashboards, KPI tracking</div>
+          <div class="progress" style="margin-top:8px"><span style="width:88%"></span></div>
+        </div>
+
+        <div class="skill reveal sr-large">
+          <h4>Soft Skills</h4>
+          <div class="small muted">Stakeholder management, escalation handling, training</div>
+          <div class="progress" style="margin-top:8px"><span style="width:90%"></span></div>
+        </div>
+
+        <div class="skill reveal sr-large">
+          <h4>Tools</h4>
+          <div class="small muted">ServiceNow, Dynatrace, AWS Connect, Appgate, Ivanti, SIMS, PuTTY</div>
+          <div class="progress" style="margin-top:8px"><span style="width:88%"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" aria-labelledby="education-heading">
+      <h2 class="heading"><i class="fas fa-graduation-cap"></i> <span id="education-heading">Education</span></h2>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+        <div class="about-card reveal sr-small">
+          <h3>MBA — HR & Marketing</h3>
+          <div class="small muted">Maharajah’s Post Graduate College — 2018–2021</div>
+        </div>
+        <div class="about-card reveal sr-small">
+          <h3>B.Sc. — Computer Science</h3>
+          <div class="small muted">Sri GCSR College — 2015–2018</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS / WORK -->
+    <section id="work" aria-labelledby="work-heading">
+      <h2 class="heading"><i class="fas fa-laptop-code"></i> <span id="work-heading">Key Projects</span></h2>
+
+      <div class="project-list">
+        <!-- example project — keep & replace with real links/images -->
+        <article class="proj reveal sr-small">
+          <img src="./assests/images/projects/mlpr.jpg" alt="Email Classifier" loading="lazy" />
+          <h4>E-Mail Classification ML Model</h4>
+          <p class="small muted">Spam vs non-spam classifier (Naive Bayes, numpy, pandas, sklearn). <a href="https://github.com/SauravMukherjee44/Email-Classification-Model" target="_blank">Code</a></p>
+        </article>
+
+        <article class="proj reveal sr-mid">
+          <img src="https://cdn.pixabay.com/photo/2020/04/17/06/49/server-5056485_1280.jpg" alt="VMAX Decommission" loading="lazy" />
+          <h4>Legacy Dell VMAX Decommissioning</h4>
+          <p class="small muted">Led decommissioning projects, released rack space and delivered cost savings through migrations.</p>
+        </article>
+
+        <article class="proj reveal sr-mid">
+          <img src="https://cdn.pixabay.com/photo/2016/03/09/09/31/customer-service-1244803_1280.jpg" alt="Dispatch Ops" loading="lazy" />
+          <h4>National Dispatch Operations</h4>
+          <p class="small muted">Managed daily dispatch handling 100+ work orders (IMACD, break/fix) for US regions.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" aria-labelledby="experience-heading">
+      <h2 class="heading"><i class="fas fa-briefcase"></i> <span id="experience-heading">Experience</span></h2>
+
+      <div class="timeline">
+        <div class="job reveal sr-small" style="background:var(--surface);padding:14px;border-radius:10px;box-shadow:var(--shadow)">
+          <h3>Information Technology Project Coordinator — SISL Infotech (UK) Pvt. Ltd</h3>
+          <div class="small muted">Aug 2025 – Present · Remote/Hybrid</div>
+          <p class="small muted">Planning and tracking infra managed services, SLA governance, reporting & stakeholder coordination.</p>
+        </div>
+
+        <div class="job reveal sr-mid" style="background:var(--surface);padding:14px;border-radius:10px;box-shadow:var(--shadow);margin-top:12px">
+          <h3>Senior Analyst — Field Service / Service Delivery Coordinator — Pomeroy</h3>
+          <div class="small muted">May 2024 – Feb 2025 · Chennai (Remote)</div>
+          <p class="small muted">Coordinated field engineers, IMACD, logistics, SLA reporting. Recognized with client appreciation.</p>
+        </div>
+
+        <div class="job reveal sr-large" style="background:var(--surface);padding:14px;border-radius:10px;box-shadow:var(--shadow);margin-top:12px">
+          <h3>Analyst III — Infrastructure Services — DXC Technology</h3>
+          <div class="small muted">Sep 2021 – Jan 2024 · Chennai</div>
+          <p class="small muted">CTB initiatives, change & incident lifecycle, CAB facilitation, CMDB audits.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 class="heading"><i class="fas fa-headset"></i> <span id="contact-heading">Get in Touch</span></h2>
+
+      <div class="contact-grid">
+        <div class="reveal sr-small">
+          <p class="small muted">Interested in working together? I’m available for roles in Chennai, Bangalore, Hyderabad, or remote. Immediate availability.</p>
+
+          <div class="form" style="margin-top:12px">
+            <form id="contactForm" onsubmit="sendMail(event)" aria-label="Contact form">
+              <div class="field"><input id="name" type="text" placeholder="Your name" required aria-label="Name" /></div>
+              <div class="field"><input id="email" type="email" placeholder="Your email" required aria-label="Email" /></div>
+              <div class="field"><textarea id="message" placeholder="Message" required aria-label="Message"></textarea></div>
+              <div><button class="btn" type="submit">Send Message <i style="margin-left:8px" class="fas fa-paper-plane"></i></button></div>
+            </form>
+
+            <p class="small muted" style="margin-top:10px">If your email client doesn't open automatically, email me at <a class="small" href="mailto:mathavanamali121@gmail.com">mathavanamali121@gmail.com</a></p>
+          </div>
+        </div>
+
+        <aside class="profile-card reveal sr-mid" style="align-self:start">
+          <h4 style="margin:0">Contact Info</h4>
+          <div class="small muted" style="margin-top:8px">Email: <a class="small" href="mailto:mathavanamali121@gmail.com">mathavanamali121@gmail.com</a></div>
+          <div class="small muted" style="margin-top:6px">Locations: Chennai • Bangalore • Hyderabad • Remote</div>
+
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" href="https://www.linkedin.com/in/vanamalimatha/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a class="btn secondary" href="https://github.com/vanamalimatha123" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+            <a class="btn secondary" href="https://medium.com/@mathavanamali121" target="_blank" rel="noopener noreferrer"><i class="fab fa-medium"></i> Medium</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid" style="justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-weight:700">Designed with <span style="color:var(--accent)">❤</span> by Vanamali Matha</div>
+        <div class="copy">© <span id="year"></span> Vanamali Matha — All rights reserved.</div>
+      </div>
+
+      <div style="text-align:right">
+        <div class="small muted">Quick links</div>
+        <div style="margin-top:6px"><a class="small" href="#home">Home</a> · <a class="small" href="#about">About</a> · <a class="small" href="#experience">Experience</a> · <a class="small" href="#contact">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: typing, theme, mobile menu, scroll spy, reveal, contact -->
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle: persist in localStorage
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const saved = localStorage.getItem('site-theme');
+    if(saved) root.setAttribute('data-theme', saved);
+    else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme','dark');
+
+    function updateThemeUI(){
+      const t = root.getAttribute('data-theme') === 'dark';
+      themeToggle.setAttribute('aria-pressed', t);
+      themeIcon.className = t ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    updateThemeUI();
+
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next==='light'? '':'dark');
+      localStorage.setItem('site-theme', next==='light'? 'light':'dark');
+      updateThemeUI();
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Typing effect (simple)
+    (function(){
+      const words = ["ServiceNow","ITIL v4","Service Delivery","Field Service (IMACD)","Project Management","Dashboards & Reporting"];
+      const el = document.querySelector('.typing');
+      if(!el) return;
+      let i=0,j=0,dir=1;
+      function tick(){
+        const w = words[i];
+        el.textContent = w.slice(0,j);
+        j += dir;
+        if(j> w.length){ dir=-1; setTimeout(tick,800); return;}
+        if(j===0){ dir=1; i=(i+1)%words.length; }
+        setTimeout(tick, dir===1?80:35);
+      }
+      tick();
+    })();
+
+    // Scroll spy - active link
+    (function scrollSpy(){
+      const sections = [...document.querySelectorAll('main section')];
+      const navLinks = [...document.querySelectorAll('header nav a')];
+      function onScroll(){
+        const y = window.scrollY + 160;
+        let current = sections[0].id;
+        for(const s of sections){ if(s.offsetTop <= y) current = s.id; }
+        navLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
+
+    // Reveal on scroll (IntersectionObserver)
+    (function reveal(){
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if(e.isIntersecting) e.target.classList.add('visible');
+        });
+      }, {threshold: 0.12});
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    })();
+
+    // Contact form -> mailto fallback
+    function sendMail(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
+      const subject = encodeURIComponent('Portfolio contact from ' + decodeURIComponent(name));
+      const body = encodeURIComponent('Name: ' + decodeURIComponent(name) + '\nEmail: ' + decodeURIComponent(email) + '\n\nMessage:\n' + decodeURIComponent(message));
+      const to = 'mathavanamali121@gmail.com';
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    }
+
+    // Close mobile menu when clicking outside (optional)
+    document.addEventListener('click', (ev) => {
+      if(!mobileMenu || !menuBtn) return;
+      if(!mobileMenu.contains(ev.target) && !menuBtn.contains(ev.target)) mobileMenu.style.display = 'none';
+    });
+  </script>
+
+  <!-- Optional: EmailJS integration if you want serverless send (commented)
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    // emailjs.init('YOUR_PUBLIC_KEY');
+    // function sendMail(e){ e.preventDefault();
+    //   emailjs.send('service_id','template_id',{name:...,email:...,message:...}).then(...);
+    // }
+  </script>
+  -->
+</body>
+</html>
