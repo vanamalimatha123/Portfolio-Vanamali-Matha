@@ -1,171 +1,462 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vanamali Matha | ITSM & Service Delivery</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="./assets/images/favicon.png" type="image/png" />
-
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Matha Vanamali • Saurav Mukherjee — Portfolio</title>
+  <meta name="description" content="Merged portfolio — Matha Vanamali (ITSM & Service Delivery) and Saurav Mukherjee (Full-stack & ML). Clean, responsive single-page portfolio." />
+  <meta name="keywords" content="ITSM, ServiceNow, ITIL, Service Delivery, Full Stack, Machine Learning, Portfolio" />
+  <meta name="author" content="Matha Vanamali & Saurav Mukherjee" />
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Matha Vanamali • Saurav Mukherjee — Portfolio" />
+  <meta property="og:description" content="ITSM & Service Delivery + Full-stack & ML projects. Resume, projects, experience and contact." />
+  <!-- Local favicon (update path if needed) -->
+  <link rel="icon" href="./assets/images/favicon.png" />
   <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Inline minimal CSS for a single-file drop-in -->
+  <style>
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #0b74de;
+      --accent-2: #055fa6;
+      --glass: rgba(11,116,222,0.06);
+      --radius: 12px;
+      --maxw: 1100px;
+      --shadow: 0 8px 24px rgba(11,74,130,0.06);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,#f6f8fb 0%,#eef4fb 100%);color:#0f172a;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+    header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.75);backdrop-filter: blur(6px);border-bottom:1px solid rgba(15,23,42,0.04)}
+    .navwrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;max-width:var(--maxw);margin:0 auto}
+    .logo{font-weight:700;color:var(--accent);text-decoration:none;font-size:18px;display:flex;align-items:center;gap:10px}
+    nav ul{display:flex;gap:8px;list-style:none;padding:0;margin:0}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:14px}
+    nav a.active, nav a:hover{background:var(--glass);color:var(--accent-2)}
+    .menu-btn{display:none;border:none;background:transparent;font-size:20px}
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:center;padding:48px 0}
+    .hero h1{font-size:30px;margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .tagline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .badge{background:var(--accent);color:#fff;padding:6px 10px;border-radius:999px;font-size:13px}
+    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(11,116,222,0.12)}
+    .socials{margin-top:16px}
+    .socials a{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:8px;margin-right:8px;text-decoration:none;color:var(--accent-2);background:rgba(11,116,222,0.06)}
+    /* profile card */
+    .profile-card{background:var(--card);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:var(--shadow)}
+    .profile-card img{width:100%;max-width:260px;border-radius:14px;object-fit:cover}
+    /* sections */
+    section{padding:36px 0}
+    h2.heading{display:flex;align-items:center;gap:12px;font-size:20px;margin:0 0 18px}
+    h2.heading i{color:var(--accent)}
+    /* Grid helpers */
+    .about-grid{display:grid;grid-template-columns:380px 1fr;gap:24px;align-items:start}
+    .about-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(11,74,130,0.03)}
+    .info-grid{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .info-grid .box{background:rgba(11,116,222,0.05);padding:10px;border-radius:10px;font-weight:600;color:var(--accent-2)}
+    /* skills */
+    .skill-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .skill{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(11,74,130,0.02)}
+    .progress{height:10px;background:#eef5fe;border-radius:8px;overflow:hidden}
+    .progress > span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:8px}
+    /* timeline/projects */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .job{background:linear-gradient(180deg,#fff,#fbfdff);padding:14px;border-radius:12px;border:1px solid rgba(11,74,130,0.03)}
+    .project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .proj{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(11,74,130,0.02)}
+    .proj img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    /* contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .form .field{display:flex;gap:8px;margin-bottom:12px}
+    .form input,.form textarea{flex:1;padding:10px;border-radius:8px;border:1px solid #e6eefc;background:#fff;outline:none}
+    .form textarea{min-height:120px;resize:vertical}
+    /* footer */
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(15,23,42,0.04);background:transparent}
+    .footer-grid{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+    .copy{margin-top:12px;color:var(--muted);font-size:13px}
+    /* responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      .about-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:820px){
+      nav ul{display:none}
+      .menu-btn{display:block}
+    }
+    /* small utilities */
+    .small{font-size:13px;color:var(--muted)}
+    .center{text-align:center}
+  </style>
 </head>
 <body>
 
-  <!-- ====== Header ====== -->
-  <header>
-    <a href="#home" class="logo"><i class="fab fa-node-js"></i> Vanamali</a>
-    <nav>
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <!-- Header / Nav -->
+  <header aria-label="Main header">
+    <div class="navwrap container">
+      <a class="logo" href="#home"><i class="fab fa-node-js"></i>&nbsp;Matha • Saurav</a>
+
+      <nav aria-label="Primary navigation" role="navigation">
+        <ul id="navLinks">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#work">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#certification">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+        <a class="btn secondary" href="./assets/Resume_Vanamali_Matha.pdf" download>Download Resume</a>
+      </div>
+    </div>
+    <!-- mobile menu (hidden by default) -->
+    <nav id="mobileMenu" style="display:none;background:rgba(255,255,255,0.98);border-top:1px solid rgba(0,0,0,0.04);padding:8px">
+      <div class="container" style="display:flex;flex-direction:column;gap:6px">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </header>
 
-  <!-- ====== Home Section ====== -->
-  <section class="home" id="home">
-    <div class="content">
-      <h1>Hi, I'm <span>Vanamali Matha</span></h1>
-      <p>ITIL v4 Certified | ITSM & Service Delivery Project Coordinator</p>
+  <main class="container" id="main">
+    <!-- HERO -->
+    <section id="home" class="hero" aria-labelledby="home-heading">
+      <div class="content">
+        <h1 id="home-heading">Hi — I'm <strong>Matha Vanamali</strong> & <strong>Saurav Mukherjee</strong></h1>
+        <p class="muted">ITSM & Service Delivery • ServiceNow • ITIL v4 — &nbsp;Full-stack Developer • Machine Learning Enthusiast</p>
 
-      <div class="socials">
-        <a href="mailto:mathavanamali121@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://linkedin.com/in/vanamalimatha" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/vanamalimatha123" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://medium.com/@mathavanamali121" target="_blank"><i class="fab fa-medium"></i></a>
-        <a href="https://www.instagram.com/vanamali.m17" target="_blank"><i class="fab fa-instagram"></i></a>
+        <div class="tagline" aria-hidden="false" style="margin-top:12px">
+          <span class="badge">Open to opportunities • Hybrid / Remote</span>
+          <span class="small muted">Availability: Immediate • Flexible shifts</span>
+        </div>
+
+        <p style="margin-top:16px">
+          <strong>Quick contacts:</strong>
+          <a class="small" href="mailto:mathavanamali121@gmail.com">mathavanamali121@gmail.com</a> ·
+          <a class="small" href="mailto:mesouravofficial@gmail.com">mesouravofficial@gmail.com</a>
+        </p>
+
+        <div style="margin-top:18px;">
+          <a class="btn" href="#about">About <i style="margin-left:6px" class="fas fa-arrow-down"></i></a>
+          <a class="btn secondary" href="#contact" style="margin-left:8px">Hire / Contact</a>
+        </div>
+
+        <div class="socials" aria-label="social links" style="margin-top:16px">
+          <a href="https://www.linkedin.com/in/vanamalimatha/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/vanamalimatha123" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/sauravmukherjee44/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/SauravMukherjee44" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        </div>
+
+        <p class="small muted" style="margin-top:14px">I am into <span class="typing-text" aria-live="polite"></span></p>
       </div>
 
-      <a href="./assets/Resume_Vanamali_Matha.pdf" download class="btn">
-        <i class="fas fa-download"></i> Download Resume
-      </a>
-    </div>
+      <!-- Profile cards (both persons) -->
+      <aside style="display:grid;gap:12px">
+        <div class="profile-card" aria-label="Profile: Matha">
+          <img src="./assets/images/Vanamali.jpeg" alt="Portrait of Matha Vanamali" loading="lazy" />
+          <div style="text-align:center">
+            <div style="font-weight:700">Matha Vanamali</div>
+            <div class="small muted">ITSM & Service Delivery Project Coordinator</div>
+            <div class="small muted">ServiceNow | ITIL v4 | Field Service</div>
+          </div>
+          <div style="width:100%;display:flex;gap:8px;justify-content:center">
+            <a class="btn secondary" href="mailto:mathavanamali121@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+          </div>
+        </div>
 
-    <div class="image">
-      <img src="./assets/images/Vanamali.png" alt="Vanamali Matha" class="hero-img" />
-    </div>
-  </section>
+        <div class="profile-card" aria-label="Profile: Saurav">
+          <img src="./assets/images/potrait.jpeg" alt="Portrait of Saurav Mukherjee" loading="lazy" />
+          <div style="text-align:center">
+            <div style="font-weight:700">Saurav Mukherjee</div>
+            <div class="small muted">Full-stack Developer • ML Enthusiast</div>
+            <div class="small muted">Open Source • Community Lead</div>
+          </div>
+          <div style="width:100%;display:flex;gap:8px;justify-content:center">
+            <a class="btn secondary" href="https://sauravmukherjee.bio.link/" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Links</a>
+          </div>
+        </div>
+      </aside>
+    </section>
 
-  <!-- ====== About ====== -->
-  <section id="about">
-    <h2><i class="fas fa-user"></i> About Me</h2>
-    <p>
-      ITIL v4–certified ITSM & Service Delivery Project Coordinator with 3.5+ years of experience
-      across BFSI, Healthcare, and IT sectors. Skilled in Incident, Change, Problem, and Field Service Management
-      with tools like ServiceNow, SIMS, Appgate, and Ivanti. Strong record in SLA governance, project coordination,
-      and global service delivery operations.
-    </p>
-  </section>
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 class="heading"><i class="fas fa-user-alt"></i> <span id="about-heading">About</span></h2>
 
-  <!-- ====== Skills ====== -->
-  <section id="skills">
-    <h2><i class="fas fa-code"></i> Skills & Abilities</h2>
-    <div class="skills-grid">
-      <div class="skill"><span>ITSM & Service Delivery</span></div>
-      <div class="skill"><span>Incident & Change Management</span></div>
-      <div class="skill"><span>Field Service & Dispatch</span></div>
-      <div class="skill"><span>ServiceNow / SIMS / Appgate</span></div>
-      <div class="skill"><span>Reporting & SLA Governance</span></div>
-      <div class="skill"><span>Stakeholder & Client Communication</span></div>
-    </div>
-  </section>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3 style="margin-top:0">Matha — Professional Summary</h3>
+          <p class="muted">
+            ITIL v4–certified ITSM & Service Delivery Project Coordinator with 3.5+ years supporting global accounts: Incident, Change, Field Service (Dispatch/IMACD), reporting & dashboards, and stakeholder coordination. Strong experience with ServiceNow, SIMS, Appgate, Ivanti and workforce management systems.
+          </p>
 
-  <!-- ====== Projects ====== -->
-  <section id="projects">
-    <h2><i class="fas fa-briefcase"></i> Key Projects</h2>
-    <div class="project-list grid">
-      
-      <div class="card">
-        <img src="./assets/images/dell-vmax.png" alt="Dell VMAX" class="proj-img" />
-        <div class="proj-content">
-          <h4>Legacy Dell VMAX Decommissioning (Deutsche Bank — UK)</h4>
-          <p>Led decommissioning of 60+ Dell VMAX units, freeing 300×42U rack spaces and saving energy costs.</p>
+          <div class="info-grid" aria-hidden="false" style="margin-top:12px">
+            <div class="box">Age: 24</div>
+            <div class="box">Preferred: Chennai • Bangalore • Hyderabad • Remote</div>
+            <div class="box">Email: mathavanamali121@gmail.com</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <a class="btn" href="./assets/Resume_Vanamali_Matha.pdf" download>Download Resume</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin-top:0">Saurav — About</h3>
+          <p class="muted">Passionate full-stack developer and community leader. Founder of CodeIN Community (10k+ devs). Focus on web apps, machine learning projects, and mentoring open-source contributors.</p>
+          <div style="margin-top:12px">
+            <a class="btn" href="https://sauravmukherjee.bio.link/" target="_blank" rel="noopener noreferrer">Visit Saurav's links</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <img src="./assets/images/storage-migration.png" alt="Storage Migration" class="proj-img" />
-        <div class="proj-content">
-          <h4>Storage Migration (VMAX20K → VMAX250F)</h4>
-          <p>Coordinated migration of 50+ EMC arrays, improving uptime and delivering £6.6M savings.</p>
+    <!-- SKILLS -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 class="heading"><i class="fas fa-laptop-code"></i> <span id="skills-heading">Skills & Abilities</span></h2>
+
+      <div class="skill-list" role="list">
+        <div class="skill" role="listitem">
+          <h4>ITSM & Service Delivery</h4>
+          <div class="small muted">Incident, Major Incident, Change, CMDB, SLA/OLA</div>
+          <div class="progress" style="margin-top:8px"><span style="width:90%"></span></div>
+        </div>
+
+        <div class="skill" role="listitem">
+          <h4>Full-stack & ML</h4>
+          <div class="small muted">React, Node, Python, ML pipelines</div>
+          <div class="progress" style="margin-top:8px"><span style="width:84%"></span></div>
+        </div>
+
+        <div class="skill" role="listitem">
+          <h4>Field Service Ops & Dispatch</h4>
+          <div class="small muted">IMACD, Tech scheduling, Vendor ops</div>
+          <div class="progress" style="margin-top:8px"><span style="width:88%"></span></div>
+        </div>
+
+        <div class="skill" role="listitem">
+          <h4>Reporting & Dashboards</h4>
+          <div class="small muted">MIS, SLA dashboards, KPI tracking</div>
+          <div class="progress" style="margin-top:8px"><span style="width:84%"></span></div>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <img src="./assets/images/philips-datacenter.jpg" alt="Philips Datacentre Migration" class="proj-img" />
-        <div class="proj-content">
-          <h4>Philips Datacentre Migration</h4>
-          <p>Relocated 200+ servers into virtual environment within 90 days with minimal downtime.</p>
+    <!-- EXPERIENCE -->
+    <section id="experience" aria-labelledby="experience-heading">
+      <h2 class="heading"><i class="fas fa-briefcase"></i> <span id="experience-heading">Experience</span></h2>
+
+      <div class="timeline">
+        <div class="job" aria-label="SISL Global">
+          <h3>Information Technology Project Coordinator — SISL Global</h3>
+          <div class="meta small muted">Aug 2025 – Present · Remote / Hybrid</div>
+          <p class="muted">PMO/Transition — infrastructure managed services coordination, SLA governance, ServiceNow reporting, and stakeholder management.</p>
+        </div>
+
+        <div class="job" aria-label="Pomeroy">
+          <h3>Senior Analyst — Field Service / Service Delivery Coordinator — Pomeroy</h3>
+          <div class="meta small muted">May 2024 – Feb 2025 · Chennai (Remote)</div>
+          <p class="muted">Coordinated field engineers, IMACD, logistics, and SLA reporting for US clients. Client appreciation for dispatch efficiency.</p>
+        </div>
+
+        <div class="job" aria-label="DXC">
+          <h3>Analyst III — Infrastructure Services / Service Delivery — DXC Technology</h3>
+          <div class="meta small muted">Sep 2021 – Jan 2024 · Chennai</div>
+          <p class="muted">CTB initiatives, change & incident lifecycle, CAB facilitation, CMDB audits, and SLA reporting.</p>
+        </div>
+
+        <div class="job" aria-label="Saurav YouTube/Dev">
+          <h3>YouTube Creator & Community Lead — Saurav</h3>
+          <div class="meta small muted">Aug 2021 – Jul 2023</div>
+          <p class="muted">Educational videos, open-source mentorship, and building community projects.</p>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <img src="./assets/images/google-cloud.png" alt="Google Cloud Program" class="proj-img" />
-        <div class="proj-content">
-          <h4>Google Cloud Readiness Program</h4>
-          <p>Program Lead — enabled 90+ employees and drove 80+ certifications improving cloud readiness.</p>
+    <!-- PROJECTS -->
+    <section id="work" aria-labelledby="projects-heading">
+      <h2 class="heading"><i class="fas fa-laptop-code"></i> <span id="projects-heading">Key Projects</span></h2>
+
+      <div class="project-list">
+        <div class="proj">
+          <img src="https://cdn.pixabay.com/photo/2020/04/17/06/49/server-5056485_1280.jpg" alt="VMAX Decommission" loading="lazy" />
+          <h4>Legacy Dell VMAX Decommissioning</h4>
+          <p class="muted">Led decommissioning of 60+ Dell VMAX units, released 300x 42U rack spaces, and improved efficiency.</p>
         </div>
-      </div>
 
-      <div class="card">
-        <img src="./assets/images/dispatch-ops.png" alt="Pomeroy Dispatch Ops" class="proj-img" />
-        <div class="proj-content">
+        <div class="proj">
+          <img src="https://cdn.pixabay.com/photo/2021/02/09/14/26/data-center-5997717_1280.jpg" alt="Storage Migration" loading="lazy" />
+          <h4>Storage Migration (VMAX → VMAX250F)</h4>
+          <p class="muted">Coordinated migration of EMC arrays, improving uptime and reducing costs.</p>
+        </div>
+
+        <div class="proj">
+          <img src="https://cdn.pixabay.com/photo/2016/03/09/09/31/customer-service-1244803_1280.jpg" alt="National Dispatch" loading="lazy" />
           <h4>National Dispatch Operations — Pomeroy</h4>
-          <p>Handled 100+ daily work orders (IMACD, break/fix) across US regions ensuring SLA compliance.</p>
+          <p class="muted">Managed daily dispatch & field operations handling 100+ work orders daily.</p>
+        </div>
+
+        <div class="proj">
+          <img src="./assets/images/projects/mlpr.jpg" alt="Email Classifier" loading="lazy" />
+          <h4>E-Mail Classification ML Model — Saurav</h4>
+          <p class="muted">Spam vs non-spam classifier using Naive Bayes, numpy, pandas & sklearn.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ====== Experience ====== -->
-  <section id="experience">
-    <h2><i class="fas fa-briefcase"></i> Experience</h2>
-    <div class="timeline">
-      <div class="job">
-        <h3>Information Technology Project Coordinator — SISL Global</h3>
-        <p><em>Aug 2025 – Present</em> · Remote / Hybrid</p>
+    <!-- CERTIFICATIONS -->
+    <section id="certification" aria-labelledby="certs-heading">
+      <h2 class="heading"><i class="fas fa-certificate"></i> <span id="certs-heading">Certifications</span></h2>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <img src="./assets/images/certs/itil4.jpg" alt="ITIL v4" loading="lazy" style="height:80px;border-radius:6px;object-fit:cover" />
+        <img src="./assets/images/certs/az900.png" alt="AZ-900" loading="lazy" style="height:80px;border-radius:6px;object-fit:cover" />
+        <img src="./assets/images/certs/gcp.png" alt="GCP ACE" loading="lazy" style="height:80px;border-radius:6px;object-fit:cover" />
+        <img src="./assets/images/certs/aws.png" alt="AWS" loading="lazy" style="height:80px;border-radius:6px;object-fit:cover" />
       </div>
+    </section>
 
-      <div class="job">
-        <h3>Senior Analyst — Field Service / Service Delivery — Pomeroy Technologies</h3>
-        <p><em>May 2024 – Feb 2025</em> · Chennai (Remote)</p>
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 class="heading"><i class="fas fa-headset"></i> <span id="contact-heading">Get in Touch</span></h2>
+
+      <div class="contact-grid">
+        <div>
+          <p class="muted">Interested in working together? Available for opportunities in Chennai, Bangalore, Hyderabad, or Remote. Immediate availability.</p>
+
+          <div class="form" style="margin-top:12px">
+            <form id="contactForm" onsubmit="sendMail(event)" aria-label="Contact form">
+              <div class="field"><input id="name" type="text" placeholder="Your name" required aria-label="Name" /></div>
+              <div class="field"><input id="email" type="email" placeholder="Your email" required aria-label="Email" /></div>
+              <div class="field"><textarea id="message" placeholder="Message" required aria-label="Message"></textarea></div>
+              <div><button class="btn" type="submit">Send Message <i style="margin-left:8px" class="fas fa-paper-plane"></i></button></div>
+            </form>
+            <p class="small muted" style="margin-top:8px">If your email client doesn't open automatically, send directly to <a class="small" href="mailto:mathavanamali121@gmail.com">mathavanamali121@gmail.com</a></p>
+          </div>
+        </div>
+
+        <aside class="profile-card" style="align-self:start">
+          <h4 style="margin:0">Contact Info</h4>
+          <div class="muted" style="margin-top:8px">Matha: <a class="small" href="mailto:mathavanamali121@gmail.com">mathavanamali121@gmail.com</a></div>
+          <div class="muted" style="margin-top:6px">Saurav: <a class="small" href="mailto:mesouravofficial@gmail.com">mesouravofficial@gmail.com</a></div>
+
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" href="https://www.linkedin.com/in/vanamalimatha/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a class="btn secondary" href="https://github.com/vanamalimatha123" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </aside>
       </div>
+    </section>
+  </main>
 
-      <div class="job">
-        <h3>Analyst III — Infrastructure Services — DXC Technology</h3>
-        <p><em>Sep 2021 – Jan 2024</em> · Chennai</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== Contact ====== -->
-  <section id="contact">
-    <h2><i class="fas fa-headset"></i> Contact</h2>
-    <ul>
-      <li>📧 <a href="mailto:mathavanamali121@gmail.com">mathavanamali121@gmail.com</a></li>
-      <li>🌐 <a href="https://linkedin.com/in/vanamalimatha" target="_blank">linkedin.com/in/vanamalimatha</a></li>
-      <li>🧑‍💻 <a href="https://github.com/vanamalimatha123" target="_blank">github.com/vanamalimatha123</a></li>
-      <li>✍️ <a href="https://medium.com/@mathavanamali121" target="_blank">medium.com/@mathavanamali121</a></li>
-      <li>📸 <a href="https://www.instagram.com/vanamali.m17" target="_blank">instagram.com/vanamali.m17</a></li>
-    </ul>
-  </section>
-
-  <!-- ====== Footer ====== -->
   <footer>
-    <p>© 2025 Vanamali Matha — All Rights Reserved</p>
+    <div class="container footer-grid">
+      <div>
+        <div style="font-weight:700">Designed with <span style="color:var(--accent)">❤</span> by Matha & Saurav</div>
+        <div class="copy">© <span id="year"></span> All rights reserved.</div>
+      </div>
+      <div style="text-align:right">
+        <div class="small muted">Quick links</div>
+        <div style="margin-top:6px"><a class="small" href="#home">Home</a> · <a class="small" href="#about">About</a> · <a class="small" href="#experience">Experience</a> · <a class="small" href="#contact">Contact</a></div>
+      </div>
+    </div>
   </footer>
 
+  <!-- Scripts -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      const m = document.getElementById('mobileMenu');
+      m.style.display = (m.style.display === 'none' || !m.style.display) ? 'block' : 'none';
+    });
+
+    // Typing effect (combined words)
+    (function typedEffect(){
+      const words = ["ServiceNow", "ITIL v4", "Service Delivery", "Field Service (IMACD)", "Full-stack Development", "Machine Learning", "Reporting & Dashboards"];
+      let el = document.querySelector('.typing-text');
+      if(!el) return;
+      let i=0, j=0, forward=true;
+      function step(){
+        const word = words[i];
+        el.textContent = word.slice(0, j);
+        if(forward){
+          if(j++ === word.length){ forward=false; setTimeout(step, 900); return; }
+        } else {
+          if(j-- === 0){ forward=true; i=(i+1)%words.length; }
+        }
+        setTimeout(step, forward?100:40);
+      }
+      step();
+    })();
+
+    // Simple scroll spy
+    (function scrollSpy(){
+      const sections = [...document.querySelectorAll('main section')];
+      const navLinks = [...document.querySelectorAll('header nav a')];
+      function onScroll(){
+        const y = window.scrollY + 140;
+        let current = sections[0].id;
+        for(const s of sections){
+          if(s.offsetTop <= y) current = s.id;
+        }
+        navLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
+
+    // Contact form -> open mailto fallback
+    function sendMail(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
+      const subject = encodeURIComponent('Portfolio contact from ' + decodeURIComponent(name));
+      const body = encodeURIComponent('Name: ' + decodeURIComponent(name) + '\nEmail: ' + decodeURIComponent(email) + '\n\nMessage:\n' + decodeURIComponent(message));
+      const to = 'mathavanamali121@gmail.com'; // primary recipient
+      const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+      // Try to open user's mail client
+      window.location.href = mailto;
+    }
+
+    /* Optional: EmailJS integration
+       If you want to send emails directly without opening mail client:
+       1) Include EmailJS script in <head>:
+          <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+       2) Initialize with your public key:
+          emailjs.init('YOUR_PUBLIC_KEY');
+       3) Then replace sendMail to call emailjs.send(...) and handle success/error.
+       (I left mailto fallback because it's the most portable.)
+    */
+
+    // Accessibility: close mobile menu on outside click
+    document.addEventListener('click', (ev) => {
+      const m = document.getElementById('mobileMenu');
+      const btn = document.getElementById('menuBtn');
+      if(!m || !btn) return;
+      if(!m.contains(ev.target) && !btn.contains(ev.target)) m.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
